@@ -1104,3 +1104,177 @@ section { padding: 110px 0; }
   body { background: #fff; }
   body::before { display: none; }
 }
+
+/* ============================================================
+   STAGE + FRAME — card-on-textured-background pattern
+   ============================================================ */
+
+.stage {
+  position: relative;
+  background: var(--khaki);
+  overflow: hidden;
+  isolation: isolate;
+}
+.stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .9;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.38 0 0 0 0 0.32 0 0 0 0.28 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 380px 380px;
+  mix-blend-mode: multiply;
+}
+.stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(120% 80% at 50% 30%, transparent 35%, rgba(38,38,38,.12) 100%),
+    linear-gradient(180deg, rgba(255,255,255,.08), transparent 30%);
+}
+.stage > * { position: relative; z-index: 1; }
+
+.frame {
+  background: var(--pearl);
+  padding: 48px;
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto;
+  position: relative;
+}
+@media (max-width: 600px) {
+  .frame { padding: 28px; }
+}
+
+.frame-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+.frame-nav-link {
+  font-family: var(--sans);
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: .02em;
+}
+.frame-nav-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.frame-nav-icon span {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: var(--ink);
+}
+.frame-nav-icon span:first-child { margin-bottom: 4px; }
+
+.frame-image {
+  aspect-ratio: 4/3;
+  background: var(--khaki);
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+.frame-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: grayscale(.18) contrast(.96);
+}
+
+.bullet-list {
+  list-style: disc;
+  padding-left: 22px;
+  margin: 0 0 28px;
+}
+.bullet-list li {
+  font-family: var(--sans);
+  font-size: .95rem;
+  color: var(--ink);
+  padding: 4px 0;
+  line-height: 1.5;
+}
+.bullet-list li::marker { color: var(--ink); }
+
+.frame h2.hero-title {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  line-height: 1.18;
+  letter-spacing: -.018em;
+  color: var(--ink);
+  margin: 0 0 18px;
+  max-width: 100%;
+}
+.frame .body-text {
+  font-family: var(--sans);
+  font-size: .92rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin: 0 0 32px;
+  max-width: 100%;
+}
+
+.btn-block {
+  display: flex;
+  width: 100%;
+  padding: 22px 28px;
+  background: var(--leather);
+  color: var(--pearl);
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: .01em;
+  text-transform: none;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background var(--t);
+}
+.btn-block:hover { background: var(--cacao); }
+.btn-block::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pearl);
+}
+
+.frame-footer {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 0;
+  font-family: var(--sans);
+  font-size: .92rem;
+  color: var(--ink);
+}
+.frame-footer a {
+  color: var(--ink);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--t);
+}
+.frame-footer a:hover { border-color: var(--ink); }
+
+/* Stage-hero specific layout */
+.stage-hero {
+  min-height: 100vh;
+  padding: 80px 32px 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.stage-hero .frame { margin-bottom: 32px; }
+@media (max-width: 600px) {
+  .stage-hero { padding: 60px 18px 80px; min-height: auto; }
+}
