@@ -53,20 +53,25 @@ body {
   min-height: 100vh;
 }
 
-/* MORTEX — real plaster texture */
+/* MORTEX — real plaster texture as body background */
+body {
+  background-color: var(--pearl);
+  background-image: url("/assets/img/mortex.webp");
+  background-size: 1400px auto;
+  background-position: top center;
+  background-attachment: fixed;
+  background-repeat: repeat;
+}
+/* Subtle warming overlay — adds depth without obscuring texture */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 1;
-  opacity: .85;
-  background-image: url("/assets/img/mortex.webp");
-  background-size: 1100px auto;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: repeat;
-  mix-blend-mode: multiply;
+  background:
+    radial-gradient(120% 80% at 30% 0%, rgba(255, 248, 230, .35), transparent 55%),
+    radial-gradient(140% 100% at 80% 100%, rgba(77, 64, 58, .12), transparent 60%);
 }
 body > * { position: relative; z-index: 2; }
 
