@@ -7,22 +7,22 @@
 
 :root {
   --white:   #FFFFFF;
-  --pearl:   #FAF8F5;
-  --khaki:   #DFDACF;
+  --pearl:   #F2EBDD;          /* mortex tone */
+  --khaki:   #E1D7C3;
   --taupe:   #A3968D;
   --cacao:   #4D403A;
-  --leather: #262626;
+  --leather: #27261A;          /* deep warm olive-near-black */
 
   --bg:        var(--pearl);
-  --bg-alt:    var(--white);
+  --bg-alt:    #F7F1E4;
   --bg-soft:   var(--khaki);
   --bg-dark:   var(--leather);
   --ink:       var(--leather);
   --ink-soft:  var(--cacao);
   --ink-mute:  var(--taupe);
-  --line:      rgba(77, 64, 58, .18);
-  --line-soft: rgba(77, 64, 58, .10);
-  --line-dark: rgba(255, 255, 255, .14);
+  --line:      rgba(39, 38, 26, .18);
+  --line-soft: rgba(39, 38, 26, .10);
+  --line-dark: rgba(242, 235, 221, .14);
 
   /* Body — Suisse Int'l alternative */
   --sans:    "Switzer", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -32,7 +32,8 @@
   --container: 1280px;
   --measure:   62ch;
 
-  --t: 350ms cubic-bezier(.2,.7,.2,1);
+  --t:    420ms cubic-bezier(.2,.7,.2,1);
+  --t-lg: 900ms cubic-bezier(.2,.7,.2,1);
 }
 
 /* ---------- Reset ---------- */
@@ -52,17 +53,34 @@ body {
   min-height: 100vh;
 }
 
-/* Paper grain — global */
+/* MORTEX — layered cement-plaster texture */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 1;
-  opacity: .55;
-  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.30 0 0 0 0 0.25 0 0 0 0 0.22 0 0 0 0.10 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-  background-size: 220px 220px;
+  opacity: .9;
+  /* Layered: large clouds + fine grain + warm tint */
+  background-image:
+    radial-gradient(120% 80% at 30% 20%, rgba(255,250,238,.55), transparent 55%),
+    radial-gradient(140% 100% at 80% 90%, rgba(143,118,80,.18), transparent 60%),
+    url("data:image/svg+xml;utf8,<svg viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'><filter id='m'><feTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='2' seed='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.36 0 0 0 0 0.30 0 0 0 0 0.20 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23m)'/></svg>"),
+    url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.30 0 0 0 0 0.25 0 0 0 0 0.18 0 0 0 0.16 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 100% 100%, 100% 100%, 1200px 1200px, 220px 220px;
+  background-attachment: fixed, fixed, fixed, fixed;
   mix-blend-mode: multiply;
+}
+/* Subtle horizontal seam (like cast plaster panels) */
+body::after {
+  content: "";
+  position: fixed;
+  left: 0; right: 0;
+  top: 50%;
+  height: 1px;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(90deg, transparent, rgba(77,64,58,.06) 30%, rgba(77,64,58,.06) 70%, transparent);
 }
 body > * { position: relative; z-index: 2; }
 
@@ -1376,3 +1394,125 @@ section { padding: 110px 0; }
   color: var(--taupe);
 }
 .tagline-meta span:first-child::before { display: none; }
+
+/* ============================================================
+   LUXE INTERACTIONS
+   ============================================================ */
+
+/* Slower, more sophisticated reveal */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 1400ms cubic-bezier(.2,.7,.2,1),
+    transform 1400ms cubic-bezier(.2,.7,.2,1);
+  transition-delay: 80ms;
+}
+[data-reveal].in {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-reveal][data-reveal-stagger="2"] { transition-delay: 220ms; }
+[data-reveal][data-reveal-stagger="3"] { transition-delay: 360ms; }
+[data-reveal][data-reveal-stagger="4"] { transition-delay: 500ms; }
+
+/* Subtle photo "breathing" hover */
+.frame-image-wide,
+.hero-image,
+.bio-image,
+.audience-card .img-frame {
+  position: relative;
+  isolation: isolate;
+}
+.frame-image-wide img,
+.hero-image img,
+.bio-image img,
+.audience-card .img-frame img {
+  transition: transform 1600ms cubic-bezier(.2,.7,.2,1), filter 800ms ease;
+  will-change: transform;
+}
+.hero-photo:hover .frame-image-wide img,
+.bio-image:hover img,
+.audience-card:hover .img-frame img {
+  transform: scale(1.025);
+  filter: grayscale(.1) contrast(1) brightness(1.03);
+}
+
+/* Smooth animated underline on inline links */
+.prose a:not(.btn):not(.btn-link):not(.btn-block),
+.frame-footer a {
+  position: relative;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 600ms cubic-bezier(.2,.7,.2,1);
+  padding-bottom: 2px;
+}
+.prose a:not(.btn):not(.btn-link):not(.btn-block):hover,
+.frame-footer a:hover {
+  background-size: 100% 1px;
+}
+
+/* CTA cursor accent */
+.btn-primary, .btn-block, .btn-accent {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::before, .btn-accent::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.12), transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 900ms cubic-bezier(.2,.7,.2,1);
+}
+.btn-primary:hover::before, .btn-accent:hover::before {
+  transform: translateX(100%);
+}
+
+/* Hero photo — slow float to feel parallax-y on scroll */
+.hero-photo .frame-image-wide {
+  transition: transform 1200ms cubic-bezier(.2,.7,.2,1);
+}
+
+/* Page transition — subtle tint when navigating */
+@media (prefers-reduced-motion: no-preference) {
+  body { animation: page-in 800ms cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes page-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+}
+
+/* Selection refinement */
+::selection { background: var(--leather); color: var(--pearl); }
+
+/* Refined drawn-line under section heads */
+.section-head::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  background: var(--leather);
+  margin: 32px auto 0;
+  transition: width 1400ms cubic-bezier(.2,.7,.2,1);
+}
+.section-head.in::after,
+[data-reveal].in .section-head::after {
+  width: 56px;
+}
+
+/* Sticky-feel on hero photo (parallax-lite via translateZ) */
+@supports (animation-timeline: scroll()) {
+  .hero-photo .frame-image-wide img {
+    animation: hero-parallax linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 100vh;
+  }
+  @keyframes hero-parallax {
+    from { transform: translateY(-3%) scale(1.04); }
+    to   { transform: translateY(3%)  scale(1.04); }
+  }
+}
