@@ -1278,3 +1278,101 @@ section { padding: 110px 0; }
 @media (max-width: 600px) {
   .stage-hero { padding: 60px 18px 80px; min-height: auto; }
 }
+
+/* ============================================================
+   CENTERED HERO — single-column, content-forward
+   ============================================================ */
+
+.hero-centered {
+  padding: 120px 0 64px;
+  text-align: center;
+}
+.hero-centered .eyebrow {
+  margin-bottom: 36px;
+}
+.hero-centered h1 {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: clamp(2.6rem, 5.6vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  margin: 0 auto 32px;
+  max-width: 18ch;
+}
+.hero-centered h1 em {
+  font-style: italic;
+  color: var(--taupe);
+  font-weight: 300;
+}
+.hero-centered p.lead {
+  font-family: var(--sans);
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  max-width: 52ch;
+  margin: 0 auto 44px;
+}
+.hero-centered .hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 0;
+}
+
+.hero-centered + .hero-photo {
+  margin-top: 48px;
+}
+
+.hero-photo {
+  position: relative;
+  margin: 0 auto 40px;
+  max-width: 1180px;
+  padding: 0 32px;
+}
+.hero-photo .frame-image-wide {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--khaki);
+}
+.hero-photo .frame-image-wide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(.18) contrast(.94) brightness(1.02);
+}
+.hero-photo .caption {
+  margin: 18px 0 0;
+  text-align: center;
+  justify-content: center;
+}
+@media (max-width: 640px) {
+  .hero-photo { padding: 0 22px; }
+  .hero-photo .frame-image-wide { aspect-ratio: 4/5; }
+}
+
+/* Wider, breathier section spacing for centered-hero context */
+.air section { padding: 160px 0; }
+@media (max-width: 720px) { .air section { padding: 96px 0; } }
+
+.tagline-meta {
+  display: inline-flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 32px;
+  font-family: var(--sans);
+  font-size: .82rem;
+  color: var(--taupe);
+  letter-spacing: .04em;
+}
+.tagline-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.tagline-meta span::before {
+  content: "·";
+  color: var(--taupe);
+}
+.tagline-meta span:first-child::before { display: none; }
