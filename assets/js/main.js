@@ -10,7 +10,7 @@ if (header) {
   onScroll();
 }
 
-// Mobile nav toggle
+// Mobile nav toggle (legacy, in case .nav-toggle still exists)
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 if (navToggle && navLinks) {
@@ -18,6 +18,26 @@ if (navToggle && navLinks) {
     const open = navToggle.classList.toggle('open');
     navLinks.classList.toggle('open', open);
     document.body.style.overflow = open ? 'hidden' : '';
+  });
+}
+
+// Holistic mobile menu — 2-line toggle + fullpage overlay
+const mToggle = document.querySelector('.m-toggle');
+const mMenu   = document.querySelector('.m-menu');
+if (mToggle && mMenu) {
+  const setOpen = (open) => {
+    mToggle.classList.toggle('open', open);
+    mMenu.classList.toggle('open', open);
+    mToggle.setAttribute('aria-expanded', String(open));
+    mMenu.setAttribute('aria-hidden', String(!open));
+    document.body.classList.toggle('menu-open', open);
+  };
+  mToggle.addEventListener('click', () => setOpen(!mToggle.classList.contains('open')));
+  // Close when a menu link is clicked
+  mMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+  // Close on escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mToggle.classList.contains('open')) setOpen(false);
   });
 }
 
