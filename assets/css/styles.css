@@ -2470,3 +2470,14 @@ body.menu-open .mobile-cta { display: none; }
     line-height: 1.22 !important;
   }
 }
+
+/* ============================================================
+   MOBILE — split-block order: text first, image after, every block
+   (prevents consecutive same-type stacking on mobile)
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .split-block { display: flex; flex-direction: column; }
+  .split-block .panel-dark  { order: 1; }
+  .split-block .panel-photo { order: 2; }
+}
