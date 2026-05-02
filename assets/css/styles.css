@@ -2436,3 +2436,37 @@ body.menu-open .mobile-cta { display: none; }
   .cta-band { padding: 30px 18px; }
   .quote-cta { padding: 44px 14px; }
 }
+
+/* ============================================================
+   MOBILE — fix hero emptiness & heading line-breaks
+   ============================================================ */
+
+@media (max-width: 720px) {
+  /* Hero panel — no forced min-height, content tight */
+  .split-panel,
+  .split-hero-sub .split-panel {
+    min-height: auto !important;
+    justify-content: flex-start;
+  }
+  .split-panel .panel-foot { margin-top: 28px; }
+
+  /* Headings — drop max-width so titles fill the width and don't break per-word */
+  .split-panel h1,
+  .split-hero-sub .split-panel h1,
+  .split-block .panel-dark h2,
+  .intro-grid h2,
+  .spec-grid h2,
+  .frame-card-inner h2,
+  .location-head h2,
+  .dark-band-side p,
+  .split-panel .panel-tagline {
+    max-width: 100% !important;
+  }
+
+  /* The inline-styled H2 inside spec-grid (Van pasgeboren baby tot grootouder.) */
+  .spec-grid > div h2 {
+    max-width: 100% !important;
+    font-size: clamp(1.5rem, 5.8vw, 1.85rem) !important;
+    line-height: 1.22 !important;
+  }
+}
