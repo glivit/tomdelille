@@ -2277,3 +2277,162 @@ body.menu-open .mobile-cta { display: none; }
   border: 0;
   filter: grayscale(.4) contrast(.95);
 }
+
+/* ============================================================
+   MOBILE FINETUNE — tighter rhythm, less stacked feel
+   ============================================================ */
+
+@media (max-width: 720px) {
+  /* Global section rhythm */
+  section { padding: 48px 0; }
+
+  /* Hero — split */
+  .split-hero { padding: 10px; min-height: auto; }
+  .split-panel { padding: 40px 24px; }
+  .split-panel h1 { font-size: clamp(1.85rem, 7.4vw, 2.4rem); margin-bottom: 22px; max-width: 100%; }
+  .split-panel .seal { width: 40px; height: 40px; font-size: .72rem; margin-bottom: 14px; }
+  .split-panel .panel-tagline { font-size: .82rem; max-width: 100%; }
+  .split-panel .panel-foot { margin-top: 28px; }
+  .split-photo { aspect-ratio: 1/1; max-width: none; }
+
+  /* Sub hero variant */
+  .split-hero-sub { padding: 8px; }
+  .split-hero-sub .split-panel { padding: 32px 22px; min-height: auto; }
+  .split-hero-sub .split-panel h1 {
+    font-size: clamp(1.55rem, 6.4vw, 1.95rem);
+    margin-bottom: 16px;
+  }
+  .split-hero-sub .panel-breadcrumb { margin-bottom: 12px; }
+
+  /* Frame-card — main card on mortex */
+  .frame-card { padding: 36px 22px; margin: 12px; }
+  .frame-card .frame-seal {
+    position: static;
+    margin: 32px 0 0 auto;
+    width: 56px; height: 56px;
+    font-size: .5rem;
+  }
+  .frame-card-inner h2 {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .frame-card-inner p { font-size: .94rem; }
+
+  /* Dark band with big-list */
+  .dark-band { padding: 56px 24px; margin: 12px; }
+  .dark-band-grid { gap: 28px; padding-left: 0; border-left: 0; }
+  .dark-band .eyebrow { margin-bottom: 18px; }
+  .big-list { font-size: clamp(1.7rem, 7vw, 2.5rem); line-height: 1.18; }
+  .dark-band-side p { font-size: .92rem; max-width: 100%; }
+
+  /* Spec-grid (voor wie + lijst) */
+  .spec-grid { gap: 24px; }
+  .spec-grid > div h2 {
+    font-size: clamp(1.25rem, 5.6vw, 1.6rem) !important;
+    margin-bottom: 14px !important;
+  }
+  .spec-grid > div p { font-size: .92rem; line-height: 1.6; margin-bottom: 18px !important; }
+  .spec-list { gap: 8px; }
+  .spec-list li { font-size: .82rem; letter-spacing: .14em; }
+
+  /* Split-block (donker panel + foto) */
+  .split-block { margin: 0 12px; gap: 12px; }
+  .split-block .panel-dark { padding: 40px 24px; }
+  .split-block .panel-dark h2 {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+  .split-block .panel-dark .compact-list { margin-bottom: 24px; }
+  .split-block .panel-dark .compact-list li {
+    font-size: .85rem;
+    padding: 8px 0;
+  }
+  .split-block .panel-photo { min-height: 280px; aspect-ratio: 4/5; }
+
+  /* Quote CTA */
+  .quote-cta { padding: 56px 18px; max-width: 100%; }
+  .quote-cta .seal-mark { margin-bottom: 22px; }
+  .quote-cta .quote {
+    font-size: clamp(1.15rem, 5.2vw, 1.5rem);
+    margin-bottom: 28px;
+    max-width: 100%;
+  }
+  .quote-cta .pill-btn { padding: 12px 28px; font-size: .68rem; }
+
+  /* Intro band */
+  .intro-band { padding: 56px 0; }
+  .intro-grid { gap: 24px; }
+  .intro-grid h2 {
+    font-size: clamp(1.55rem, 6.4vw, 2rem);
+    line-height: 1.2;
+  }
+  .intro-grid p { font-size: .96rem; }
+
+  /* Centered hero */
+  .hero-centered { padding: 56px 0 24px; }
+  .hero-centered h1 { font-size: clamp(2rem, 8vw, 2.8rem); margin-bottom: 22px; }
+  .hero-centered p.lead { font-size: 1rem; margin-bottom: 28px; }
+  .hero-centered .hero-actions { gap: 8px; flex-direction: column; align-items: stretch; }
+  .hero-centered .hero-actions .btn { width: 100%; }
+  .hero-photo { padding: 0 12px; margin-bottom: 24px; }
+
+  /* Stats */
+  .stats { margin: 32px 0; }
+  .stats > div { padding: 24px 14px 24px 0; }
+  .stat-num { font-size: clamp(1.9rem, 7.6vw, 2.6rem); margin-bottom: 8px; }
+  .stat-label { font-size: .6rem; }
+
+  /* CTA band */
+  .cta-band { padding: 36px 22px; gap: 22px; }
+  .cta-band h2 { font-size: 1.4rem; margin-bottom: 10px; }
+  .cta-band p { font-size: .92rem; }
+  .cta-band-actions .btn { padding: 13px 22px; font-size: .68rem; }
+
+  /* Location band (pre-footer) */
+  .location-band { margin: 12px; }
+  .location-head { margin-bottom: 16px; gap: 10px; align-items: start; }
+  .location-head h2 { font-size: clamp(1.4rem, 6vw, 1.8rem); }
+  .location-head .location-meta { font-size: .82rem; }
+  .location-grid { gap: 6px; }
+  .location-grid .photo, .location-grid .map { aspect-ratio: 5/4; }
+
+  /* Footer */
+  .site-footer { padding: 64px 0 24px; }
+  .footer-grid { gap: 28px; margin-bottom: 48px; }
+  .footer-tagline { font-size: .94rem; margin-top: 18px; }
+  .footer-list li { font-size: .82rem; }
+  .footer-bottom { font-size: .62rem; padding-top: 22px; }
+
+  /* Page header (legacy fallback) */
+  .page-header { padding: 56px 0 36px; }
+  .page-header h1 { font-size: clamp(1.9rem, 7.6vw, 2.6rem); margin-bottom: 16px; }
+
+  /* Prose pages tighter */
+  .split { gap: 28px; }
+  .prose blockquote { font-size: 1.15rem; padding: 22px 0; margin: 32px 0; }
+  .prose h2 { font-size: clamp(1.4rem, 5.6vw, 1.9rem); }
+
+  /* FAQ */
+  .faq-q { padding: 20px 0; font-size: 1.05rem; gap: 16px; }
+  .faq-q .icon { width: 18px; height: 18px; font-size: 1rem; }
+  .faq-a-inner { padding-bottom: 22px; }
+
+  /* Reveal — slightly faster on mobile */
+  [data-reveal] { transition: opacity 800ms ease, transform 800ms ease; }
+}
+
+@media (max-width: 480px) {
+  section { padding: 36px 0; }
+  .split-hero { padding: 8px; }
+  .split-panel { padding: 32px 20px; }
+  .split-hero-sub .split-panel { padding: 28px 18px; }
+  .frame-card { padding: 28px 18px; margin: 8px; }
+  .dark-band { padding: 44px 20px; margin: 8px; }
+  .split-block { margin: 0 8px; gap: 8px; }
+  .split-block .panel-dark { padding: 32px 20px; }
+  .location-band { margin: 8px; }
+  .cta-band { padding: 30px 18px; }
+  .quote-cta { padding: 44px 14px; }
+}
