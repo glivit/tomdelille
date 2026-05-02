@@ -9,6 +9,13 @@
 <meta name="theme-color" content="#EDE6D6" />
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
+<meta property="og:image" content="https://tomdelille.be/assets/img/image1.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="900" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Tom De Lille — Osteopaat in Knokke-Heist" />
+<meta name="twitter:description" content="Cranio-sacrale osteopathie voor baby's, kinderen en volwassenen. Praktijk in Knokke-Heist." />
+<meta name="twitter:image" content="https://tomdelille.be/assets/img/image1.jpg" />
 <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -21,6 +28,8 @@
   </div>
   <a href="/" class="logo">Tom De Lille</a>
   <div class="nav-r">
+    <a href="/fr/rendez-vous.html" class="nav-lang">FR</a>
+    <a href="tel:050621567" class="nav-phone">050 62 15 67</a>
     <a href="/faq.html">FAQ</a>
     <a href="/afspraak.html">Afspraak</a>
     <button class="m-toggle" aria-label="Menu openen" aria-expanded="false">
@@ -38,7 +47,7 @@
     <a href="/afspraak.html">Afspraak</a>
   </nav>
   <div class="m-contact">
-    <span class="m-contact-label">Contact</span>
+    <span class="m-contact-label">Contact · <a href="/fr/rendez-vous.html" style="color:var(--khaki);">FR</a></span>
     <a href="tel:050621567">050 62 15 67</a>
     <a href="mailto:delille.tom@gmail.com">delille.tom@gmail.com</a>
     <p>Helmweg 14<br/>8300 Knokke-Heist</p>
@@ -98,28 +107,36 @@
 
       <div data-reveal>
         <h4>Een bericht achterlaten</h4>
-        <p>Geef ons een korte beschrijving van uw klacht en uw
+        <p>Geef een korte beschrijving van uw klacht en uw
         voorkeursmoment. We bellen u terug om de afspraak te bevestigen.</p>
 
-        <form class="form" action="mailto:delille.tom@gmail.com" method="post" enctype="text/plain" style="display:flex;flex-direction:column;gap:0;margin-top:32px;">
-          <label style="display:flex;flex-direction:column;gap:6px;padding:18px 0;border-top:1px solid var(--line);">
-            <span style="font-family:var(--sans);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe);">Naam</span>
-            <input type="text" name="naam" required style="background:transparent;border:0;border-bottom:0;font-family:var(--serif);font-size:1.15rem;color:var(--ink);padding:6px 0;outline:none;" />
+        <form id="contact-form" class="contact-form" novalidate>
+          <label class="contact-field">
+            <span class="contact-label">Naam</span>
+            <input type="text" name="naam" required autocomplete="name" />
           </label>
-          <label style="display:flex;flex-direction:column;gap:6px;padding:18px 0;border-top:1px solid var(--line);">
-            <span style="font-family:var(--sans);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe);">Telefoon</span>
-            <input type="tel" name="telefoon" required style="background:transparent;border:0;font-family:var(--serif);font-size:1.15rem;color:var(--ink);padding:6px 0;outline:none;" />
+          <label class="contact-field">
+            <span class="contact-label">Telefoon</span>
+            <input type="tel" name="telefoon" required autocomplete="tel" />
           </label>
-          <label style="display:flex;flex-direction:column;gap:6px;padding:18px 0;border-top:1px solid var(--line);">
-            <span style="font-family:var(--sans);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe);">E-mail</span>
-            <input type="email" name="email" style="background:transparent;border:0;font-family:var(--serif);font-size:1.15rem;color:var(--ink);padding:6px 0;outline:none;" />
+          <label class="contact-field">
+            <span class="contact-label">E-mail</span>
+            <input type="email" name="email" autocomplete="email" />
           </label>
-          <label style="display:flex;flex-direction:column;gap:6px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
-            <span style="font-family:var(--sans);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe);">Bericht</span>
-            <textarea name="bericht" rows="5" style="background:transparent;border:0;font-family:var(--serif);font-size:1.05rem;color:var(--ink);padding:6px 0;outline:none;resize:vertical;line-height:1.5;"></textarea>
+          <label class="contact-field contact-field-last">
+            <span class="contact-label">Bericht</span>
+            <textarea name="bericht" rows="5"></textarea>
           </label>
-          <button type="submit" class="btn btn-primary" style="margin-top:32px;align-self:flex-start;">Verzenden</button>
+          <input type="text" name="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;" aria-hidden="true" />
+          <button type="submit" class="btn btn-primary contact-submit">Verzenden</button>
+          <p class="contact-error" hidden></p>
         </form>
+
+        <div class="contact-success" hidden data-reveal>
+          <span class="eyebrow">Bedankt</span>
+          <h3 style="font-family:var(--display);font-weight:300;font-size:1.6rem;letter-spacing:-.018em;margin:0 0 16px;">Uw bericht is goed aangekomen.</h3>
+          <p style="font-size:.96rem;line-height:1.65;color:var(--ink-soft);">We bellen u zo snel mogelijk terug op het opgegeven nummer. Bij dringende vragen kan u altijd direct bellen op <a href="tel:050621567" style="color:var(--ink);border-bottom:1px solid var(--ink);">050 62 15 67</a>.</p>
+        </div>
 
         <p style="font-size:.82rem;color:var(--taupe);margin-top:24px;">
           Voorkeur voor telefonisch contact? Bel <a href="tel:050621567" style="color:var(--ink);border-bottom:1px solid var(--ink);">050 62 15 67</a>.

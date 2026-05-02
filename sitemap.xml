@@ -1,11 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://tomdelille.be/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://tomdelille.be/over-mij.html</loc><changefreq>yearly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tomdelille.be/osteopathie.html</loc><changefreq>yearly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tomdelille.be/voor-wie.html</loc><changefreq>yearly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tomdelille.be/praktisch.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://tomdelille.be/afspraak.html</loc><changefreq>yearly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tomdelille.be/faq.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tomdelille.be/privacy.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://tomdelille.be/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tomdelille.be/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tomdelille.be/fr/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tomdelille.be/" />
+    <changefreq>monthly</changefreq><priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://tomdelille.be/over-mij.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tomdelille.be/over-mij.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tomdelille.be/fr/a-propos.html" />
+    <changefreq>yearly</changefreq><priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tomdelille.be/osteopathie.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tomdelille.be/osteopathie.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tomdelille.be/fr/osteopathie.html" />
+    <changefreq>yearly</changefreq><priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tomdelille.be/voor-wie.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tomdelille.be/voor-wie.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tomdelille.be/fr/pour-qui.html" />
+    <changefreq>yearly</changefreq><priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tomdelille.be/praktisch.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tomdelille.be/praktisch.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tomdelille.be/fr/pratique.html" />
+    <changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tomdelille.be/afspraak.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tomdelille.be/afspraak.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tomdelille.be/fr/rendez-vous.html" />
+    <changefreq>yearly</changefreq><priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tomdelille.be/faq.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tomdelille.be/faq.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tomdelille.be/fr/faq.html" />
+    <changefreq>yearly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tomdelille.be/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tomdelille.be/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tomdelille.be/fr/confidentialite.html" />
+    <changefreq>yearly</changefreq><priority>0.2</priority>
+  </url>
+
+  <url><loc>https://tomdelille.be/fr/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://tomdelille.be/fr/a-propos.html</loc><changefreq>yearly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tomdelille.be/fr/osteopathie.html</loc><changefreq>yearly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tomdelille.be/fr/pour-qui.html</loc><changefreq>yearly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tomdelille.be/fr/pratique.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tomdelille.be/fr/rendez-vous.html</loc><changefreq>yearly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tomdelille.be/fr/faq.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tomdelille.be/fr/confidentialite.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+
 </urlset>

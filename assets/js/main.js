@@ -116,6 +116,48 @@ magnets.forEach(el => {
   });
 });
 
+// Contact form — submit via fetch to /api/contact, show inline success/error
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  const submitBtn = contactForm.querySelector('.contact-submit');
+  const errorEl   = contactForm.querySelector('.contact-error');
+  const successEl = document.querySelector('.contact-success');
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (errorEl) { errorEl.hidden = true; errorEl.textContent = ''; }
+    submitBtn.disabled = true;
+    const originalLabel = submitBtn.textContent;
+    submitBtn.textContent = 'Versturen…';
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        body: new FormData(contactForm),
+      });
+      const result = await res.json().catch(() => ({}));
+
+      if (res.ok && result.ok) {
+        contactForm.hidden = true;
+        if (successEl) {
+          successEl.hidden = false;
+          successEl.classList.add('in');
+          successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } else {
+        throw new Error(result.error || 'Verzending mislukt.');
+      }
+    } catch (err) {
+      if (errorEl) {
+        errorEl.textContent = err.message + ' Bel direct op 050 62 15 67.';
+        errorEl.hidden = false;
+      }
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+    }
+  });
+}
+
 // Slow image-shift on hero photo when no native scroll-timeline
 if (!CSS.supports('animation-timeline: scroll()')) {
   const photo = document.querySelector('.hero-photo .frame-image-wide img');
