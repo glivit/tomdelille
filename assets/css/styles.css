@@ -2062,6 +2062,7 @@ section { padding: 110px 0; }
 
 @media (max-width: 900px) {
   .m-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .holistic-header { grid-template-columns: 1fr auto; padding: 18px 22px; z-index: 100; }
   .holistic-header .nav-l { display: none; }
   .holistic-header .nav-r { display: flex; justify-content: flex-end; gap: 0; }
   .holistic-header .nav-r > a { display: none; }
@@ -2072,7 +2073,7 @@ section { padding: 110px 0; }
   inset: 0;
   background: var(--leather);
   color: var(--pearl);
-  z-index: 55;
+  z-index: 90;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -2157,6 +2158,7 @@ section { padding: 110px 0; }
 }
 
 body.menu-open { overflow: hidden; }
+body.menu-open .mobile-cta { display: none; }
 
 /* ============================================================
    SUB-PAGE HERO — smaller variant of split-hero
