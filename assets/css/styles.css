@@ -2150,3 +2150,57 @@ section { padding: 110px 0; }
 }
 
 body.menu-open { overflow: hidden; }
+
+/* ============================================================
+   SUB-PAGE HERO — smaller variant of split-hero
+   ============================================================ */
+
+.split-hero-sub {
+  min-height: 56vh;
+  padding: 16px;
+}
+.split-hero-sub .split-panel {
+  padding: 64px 56px;
+}
+.split-hero-sub .split-panel h1 {
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  letter-spacing: -.02em;
+  margin-bottom: 24px;
+  max-width: 16ch;
+}
+.split-hero-sub .split-panel .seal {
+  width: 44px; height: 44px;
+  font-size: .76rem;
+  margin-bottom: 16px;
+}
+.split-hero-sub .split-panel .panel-tagline {
+  font-family: var(--sans);
+  font-size: .82rem;
+  font-style: normal;
+  letter-spacing: .04em;
+  line-height: 1.6;
+  color: var(--khaki);
+  max-width: 32ch;
+}
+.split-hero-sub .panel-breadcrumb {
+  font-family: var(--sans);
+  font-size: .64rem;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  margin-bottom: 16px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.split-hero-sub .panel-breadcrumb a { color: var(--taupe); transition: color var(--t); }
+.split-hero-sub .panel-breadcrumb a:hover { color: var(--pearl); }
+.split-hero-sub .panel-breadcrumb span.sep { color: var(--cacao); }
+
+@media (max-width: 900px) {
+  .split-hero-sub { min-height: auto; padding: 12px; }
+  .split-hero-sub .split-panel { padding: 48px 28px; min-height: 48vh; }
+}
+
+/* When .page-header is replaced by split-hero, ensure no double padding */
+.split-hero-sub + section { padding-top: 0; }
