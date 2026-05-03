@@ -2055,7 +2055,7 @@ section { padding: 110px 0; }
 .m-toggle.open span {
   width: 24px;
   transition: top 350ms cubic-bezier(.2,.7,.2,1), transform 350ms cubic-bezier(.2,.7,.2,1) 350ms, background-color 250ms ease, width 350ms cubic-bezier(.2,.7,.2,1);
-  background: var(--pearl);
+  background: var(--leather);
 }
 .m-toggle.open span:nth-child(1) { top: 17px; transform: rotate(45deg); }
 .m-toggle.open span:nth-child(2) { top: 17px; transform: rotate(-45deg); }
