@@ -2889,3 +2889,23 @@ body.menu-open .mobile-cta { display: none; }
     padding: 0 22px;
   }
 }
+
+/* ============================================================
+   MOBILE — hide split-aside entirely, restore split layout
+   (the page-level horizontal overflow caused by full-width
+   breakout was worse than missing the aside)
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .split-aside { display: none !important; }
+  .split {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: auto !important;
+  }
+  .split .prose { padding: 0 !important; }
+  /* Belt + braces: ensure no horizontal scroll on the page */
+  html, body { overflow-x: hidden; }
+}
