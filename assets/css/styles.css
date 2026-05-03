@@ -2833,3 +2833,22 @@ body.menu-open .mobile-cta { display: none; }
   /* When mobile menu is open, hide the aside underneath */
   body.menu-open .split-aside { z-index: 1; }
 }
+
+/* ============================================================
+   MOBILE — show lang-switch in header next to hamburger
+   ============================================================ */
+
+@media (max-width: 1100px) {
+  .holistic-header .lang-switch {
+    display: inline-flex !important;
+    margin-right: 10px;
+  }
+  .holistic-header .lang-switch a {
+    font-size: .62rem;
+    padding: 6px 9px;
+    letter-spacing: .16em;
+  }
+}
+
+/* The m-menu version becomes redundant since the header switch covers it (header z-index > m-menu) */
+.m-menu .lang-switch { display: none; }
