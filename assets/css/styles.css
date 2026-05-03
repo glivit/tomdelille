@@ -2852,3 +2852,40 @@ body.menu-open .mobile-cta { display: none; }
 
 /* The m-menu version becomes redundant since the header switch covers it (header z-index > m-menu) */
 .m-menu .lang-switch { display: none; }
+
+/* ============================================================
+   MOBILE — split breaks out of container, aside is naturally full-width
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .split {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    width: 100vw;
+  }
+  .split-aside {
+    position: sticky;
+    top: 72px;
+    z-index: 10;
+    background: var(--leather);
+    color: var(--khaki);
+    border: 0;
+    padding: 14px 22px;
+    margin: 0 0 32px 0 !important;
+    width: 100%;
+  }
+  .split-aside::after {
+    /* keep the right-edge fade hint */
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 36px;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, var(--leather));
+  }
+  .split .prose {
+    padding: 0 22px;
+  }
+}
