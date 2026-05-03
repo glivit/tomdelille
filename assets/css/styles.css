@@ -2052,10 +2052,13 @@ section { padding: 110px 0; }
 }
 .m-toggle span:nth-child(1) { top: 13px; }
 .m-toggle span:nth-child(2) { top: 21px; }
-.m-toggle.open span {
+.m-toggle.open span,
+.m-toggle.open span:nth-child(1),
+.m-toggle.open span:nth-child(2) {
   width: 24px;
-  transition: top 350ms cubic-bezier(.2,.7,.2,1), transform 350ms cubic-bezier(.2,.7,.2,1) 350ms, background-color 250ms ease, width 350ms cubic-bezier(.2,.7,.2,1);
-  background: var(--leather);
+  transition: top 350ms cubic-bezier(.2,.7,.2,1), transform 350ms cubic-bezier(.2,.7,.2,1) 350ms, background-color 200ms ease, width 350ms cubic-bezier(.2,.7,.2,1);
+  background-color: #27261A !important;
+  background: #27261A !important;
 }
 .m-toggle.open span:nth-child(1) { top: 17px; transform: rotate(45deg); }
 .m-toggle.open span:nth-child(2) { top: 17px; transform: rotate(-45deg); }
