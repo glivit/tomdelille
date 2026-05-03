@@ -2771,3 +2771,65 @@ body.menu-open .mobile-cta { display: none; }
 }
 .panel-call:hover { background: var(--pearl); }
 .panel-call svg { flex-shrink: 0; }
+
+/* ============================================================
+   MOBILE — split-aside as horizontal chip-bar under header
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .split-aside {
+    position: sticky;
+    top: 72px;
+    z-index: 10;
+    background: var(--leather);
+    color: var(--khaki);
+    border: 0;
+    /* break out of container padding */
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    margin-bottom: 32px;
+    padding: 14px 22px;
+  }
+  .split-aside h4 { display: none; }
+  .split-aside ul {
+    display: flex;
+    flex-direction: row;
+    gap: 22px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    padding: 0;
+    margin: 0;
+    scrollbar-width: none;
+  }
+  .split-aside ul::-webkit-scrollbar { display: none; }
+  .split-aside ul a {
+    flex-shrink: 0;
+    color: var(--khaki);
+    border: 0;
+    padding: 4px 0;
+    font-size: .8rem;
+    letter-spacing: .04em;
+    white-space: nowrap;
+    scroll-snap-align: start;
+    font-family: var(--sans);
+    transition: color 200ms ease;
+  }
+  .split-aside ul a:hover,
+  .split-aside ul a:focus-visible {
+    color: var(--pearl);
+    padding-left: 0;
+  }
+  /* fade right edge to hint scrollability */
+  .split-aside::after {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 36px;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, var(--leather));
+  }
+  /* When mobile menu is open, hide the aside underneath */
+  body.menu-open .split-aside { z-index: 1; }
+}
